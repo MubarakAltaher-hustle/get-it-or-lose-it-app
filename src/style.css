@@ -1,0 +1,184 @@
+:root {
+  --bg0: #0b0c10;
+  --bg1: #0f1220;
+  --card: rgba(255, 255, 255, 0.06);
+  --card-border: rgba(255, 255, 255, 0.12);
+  --text: rgba(255, 255, 255, 0.86);
+  --muted: rgba(255, 255, 255, 0.62);
+  --brand: #7c3aed;
+  --brand2: #22d3ee;
+  --shadow: 0 20px 70px rgba(0, 0, 0, 0.45);
+
+  font-family: system-ui, 'Segoe UI', Roboto, sans-serif;
+  color: var(--text);
+  background: radial-gradient(1200px 700px at 20% 10%, rgba(124, 58, 237, 0.35), transparent 55%),
+    radial-gradient(900px 650px at 90% 20%, rgba(34, 211, 238, 0.18), transparent 60%),
+    linear-gradient(180deg, var(--bg0), var(--bg1));
+  color-scheme: dark;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+}
+
+#app {
+  min-height: 100vh;
+}
+
+.shell {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 28px 18px;
+  box-sizing: border-box;
+}
+
+.card {
+  width: min(720px, 100%);
+  background: var(--card);
+  border: 1px solid var(--card-border);
+  border-radius: 18px;
+  box-shadow: var(--shadow);
+  padding: 26px;
+  backdrop-filter: blur(10px);
+}
+
+.kicker {
+  font-size: 13px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+h1 {
+  margin: 10px 0 10px;
+  font-size: clamp(32px, 5vw, 44px);
+  letter-spacing: -0.02em;
+}
+
+h2 {
+  margin: 10px 0 12px;
+  font-size: clamp(22px, 3.2vw, 28px);
+  letter-spacing: -0.01em;
+}
+
+.subtle {
+  color: var(--muted);
+  margin: 0 0 16px;
+}
+
+.toprow {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.options {
+  margin-top: 14px;
+  display: grid;
+  gap: 10px;
+}
+
+.option {
+  display: grid;
+  grid-template-columns: 20px 1fr;
+  gap: 12px;
+  align-items: start;
+  padding: 12px 12px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(0, 0, 0, 0.16);
+  cursor: pointer;
+  transition: transform 120ms ease, border-color 120ms ease, background 120ms ease;
+}
+
+.option:hover {
+  transform: translateY(-1px);
+  border-color: rgba(255, 255, 255, 0.22);
+  background: rgba(0, 0, 0, 0.22);
+}
+
+.option input {
+  margin-top: 2px;
+  accent-color: var(--brand2);
+}
+
+.actions {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+  margin-top: 18px;
+  flex-wrap: wrap;
+}
+
+.btn {
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--text);
+  padding: 10px 14px;
+  border-radius: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 120ms ease, background 120ms ease, border-color 120ms ease;
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.22);
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.btn:focus-visible {
+  outline: 3px solid rgba(34, 211, 238, 0.5);
+  outline-offset: 2px;
+}
+
+.btn.primary {
+  background: linear-gradient(135deg, rgba(124, 58, 237, 0.95), rgba(34, 211, 238, 0.7));
+  border-color: rgba(255, 255, 255, 0.22);
+}
+
+.btn.ghost {
+  background: transparent;
+}
+
+.final-area {
+  display: grid;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.hint {
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.choice {
+  color: white;
+}
+
+/* The moving button lives directly under #app so it can orbit the viewport. */
+.btn.moving {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 50;
+  will-change: transform;
+  user-select: none;
+}
+
+.btn.cook {
+  background: rgba(255, 255, 255, 0.10);
+  border-color: rgba(255, 255, 255, 0.22);
+}
